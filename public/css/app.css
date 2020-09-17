@@ -1,0 +1,20 @@
+.flex-container{
+    display:flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.flex-container > div{
+    margin: 10px;
+    width: 250px;
+    height: auto;
+}
+
+.card > card-img-top{
+    width: 100%;
+}
+
+.user_img{
+    width: 100px;
+    height: 100px;
+}
