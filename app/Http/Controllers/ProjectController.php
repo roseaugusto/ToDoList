@@ -51,8 +51,7 @@ class ProjectController extends Controller
             'name' => 'required',
             'budget' => 'required',
             'desc' => 'required|min:20'
-        ]);
-        
+        ]);      
         
         $p = new Project();
         $p->name=$request->input('name');
@@ -100,6 +99,13 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'name' => 'required',
+            'budget' => 'required',
+            'desc' => 'required|min:20'
+        ]);
+        
         $p = Project::find($id);
         $p->name = $request->input('name');
         $p->budget = $request->input('budget');
