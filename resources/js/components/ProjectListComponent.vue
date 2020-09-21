@@ -11,7 +11,7 @@
             <div class="card card-default">
                 <div class="card-header">List of Projects 
                     <span class="float-right">
-                        <a href="project/create" class="btn btn-primary btn-sm">Add New User</a>
+                        <a href="project/create" class="btn btn-primary btn-sm">Add New Project</a>
                     </span>
                 </div>
                 <div class="container table-responsive p-3">

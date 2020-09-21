@@ -4,7 +4,12 @@
         <div class="col-md-8">
             <a href="/project"><i class="btn fa fa-chevron-circle-left fa-2x text-primary pl-0" title="Back"></i></a>
             <br>
-            
+            <div v-if="msg">
+                <div class="alert alert-success">
+                    {{msg}}
+                </div>
+                <br>
+            </div>
             <h3>Create New Project</h3>
             <br>
             <form>
@@ -45,12 +50,17 @@ export default {
     methods: {
         saveData(){
             axios.post(
-                'project',{
+                '/project',{
                     name: this.name,
                     budget: this.budget,
                     desc: this.desc
                 }
-            ).then(response => this.msg = response.data.msg);
+            ).then(response => {
+                this.msg = response.data.msg;
+                this.name = '';
+                this.budget = '';
+                this.desc = '';
+            });
         },
         clearMsg(){
             this.msg = '';
