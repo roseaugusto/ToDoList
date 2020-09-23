@@ -36,7 +36,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('create-project');
+        //return view('create-project');
     }
 
     /**
@@ -60,11 +60,10 @@ class ProjectController extends Controller
         $p->user_id= Auth::user()->id;
         $p->save();
 
-        // return response()->json([
-        //     'msg' => 'Successfully added project'
-        // ]);
+        return response()->json([
+            'msg' => 'Successfully added project'
+        ]);
 
-        return redirect('/project')->with("message", "Successfully Added Project");
     }
 
     /**

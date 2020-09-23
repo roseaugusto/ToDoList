@@ -11,7 +11,7 @@
             <div class="card card-default">
                 <div class="card-header">List of Projects 
                     <span class="float-right">
-                        <a href="project/create" class="btn btn-primary btn-sm">Add New Project</a>
+                        <a href="projects/create" class="btn btn-primary btn-sm">Add New Project</a>
                     </span>
                 </div>
                 <div class="container table-responsive p-3">
@@ -28,11 +28,10 @@
                             <tr v-for="p in projects.data" :key="p.id">    
                                 <th scope="row">{{p.name}}</th>
                                 <td>{{p.budget}}</td>
-                                <td>{{p.description}}</td>
+                                <td>{{p.description.substring(0,20)+"..."}}</td>
                                 <td><i data-toggle="modal" data-target="#editModal" @click="editProject(p.id)" title="Edit" class="btn p-0 fa fa-edit fa-lg text-primary text-lg-right"></i></td>
                                 <td><i data-toggle="modal" data-target="#confirmModal" title="Delete" class="btn p-0 fa fa-trash fa-lg text-primary" @click="confirmDeletion(p.id)"></i></td>
-                            </tr>
-                            
+                            </tr> 
                         </tbody>
                     </table>
                     <pagination :data="projects" @pagination-change-page="getResults"></pagination>
