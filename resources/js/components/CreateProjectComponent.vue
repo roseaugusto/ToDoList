@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <a href="/project"><i class="btn fa fa-chevron-circle-left fa-2x text-primary pl-0" title="Back"></i></a>
+            <a href="/projects"><i class="btn fa fa-chevron-circle-left fa-2x text-primary pl-0" title="Back"></i></a>
             <br>
             <div v-if="msg">
                 <div class="alert alert-success">
