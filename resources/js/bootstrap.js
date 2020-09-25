@@ -5,6 +5,7 @@ import Popper from 'popper.js';
 import Jquery from 'jquery';
 import Bootstrap from 'bootstrap';
 
+
 try {
     window.$ = window.jquery = Jquery;
 

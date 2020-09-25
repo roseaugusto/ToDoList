@@ -29,7 +29,7 @@ let routes = [
         component: usersView
     },
     {
-        path: '/myaccount',
+        path: '/profile/myaccount',
         component: myAccountView
     }
 ];

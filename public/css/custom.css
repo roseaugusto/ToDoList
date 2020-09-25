@@ -1,0 +1,31 @@
+.container .profilepic {
+    position: relative;
+    width: 30%;
+  }
+  
+.container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Style the button and place it in the top-right of the container/image */
+  .container .profilepic .btn {
+    
+    top: 10%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    opacity: 30%;
+  }
+  
+  .container .profilepic .btn:hover {
+    background-color: black;
+    color: white;
+  }

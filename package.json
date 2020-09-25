@@ -21,6 +21,8 @@
     },
     "dependencies": {
         "laravel-vue-pagination": "^2.3.1",
+        "moment": "^2.29.0",
+        "vee-validate": "^3.4.0",
         "vue-router": "^3.4.3"
     }
 }
