@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import Popper from 'popper.js';
 import Jquery from 'jquery';
 import Bootstrap from 'bootstrap';
+import * as VeeValidate from 'vee-validate';
 
 
 try {
@@ -17,6 +18,7 @@ window.axios = axios;
 window.Popper = Popper;
 window.VueRouter = VueRouter;
 Vue.use(VueRouter);
+Vue.use(VeeValidate);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 

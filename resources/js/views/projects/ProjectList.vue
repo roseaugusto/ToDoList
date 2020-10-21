@@ -15,6 +15,10 @@
                     </span>
                 </div>
                 <div class="container table-responsive p-3">
+                    <div class="container form-group">
+                        <input type="text" class="form-control" v-model="searchQuery" placeholder="search..">
+                    </div>
+                    <br>
                     <table class="table table-striped">
                         <thead>
                             <tr class="table-primary">
@@ -25,7 +29,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="p in projects.data" :key="p.id">    
+                            <tr v-for="p in projectQuery" :key="p.id">    
                                 <th scope="row">{{p.name}}</th>
                                 <td>{{p.budget}}</td>
                                 <td>{{p.description.substring(0,20)+"..."}}</td>
@@ -112,12 +116,25 @@
                budget: '',
                desc: '',
                id: '',
-               msg:''
+               msg:'',
+               searchQuery:''
            }
        },
        mounted() {
             // Fetch initial results
             this.getResults();
+       },
+       computed:{
+            projectQuery(){
+                if(this.searchQuery){
+                    return this.projects.data.filter((project)=>{
+                        return this.searchQuery.toLowerCase().split(' ').every(v => project.name.toLowerCase().includes(v));
+                    });
+                }
+                else{
+                    return this.projects.data;
+                }
+            }
        },
        methods: {
 		    // Our method to GET results from a Laravel endpoint
