@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\UserGeolocation;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -63,10 +64,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $ipinfo = geoip()->getLocation(geoip()->getClientIP())->toArray();
+
+        $newUser =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        if($ipinfo)
+            UserGeolocation::create([
+                'ip_address' => $ipinfo['ip'],
+                'country_name' => $ipinfo['country'],
+                'currency' => $ipinfo['currency'],
+                'user_id' => $newUser->id,
+            ]);
+
+        return $newUser;
     }
 }

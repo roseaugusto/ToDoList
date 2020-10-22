@@ -36,6 +36,9 @@
                                 <td><i data-toggle="modal" data-target="#editModal" @click="editProject(p.id)" title="Edit" class="btn p-0 fa fa-edit fa-lg text-primary text-lg-right"></i></td>
                                 <td><i data-toggle="modal" data-target="#confirmModal" title="Delete" class="btn p-0 fa fa-trash fa-lg text-primary" @click="confirmDeletion(p.id)"></i></td>
                             </tr> 
+                            <tr v-show="projectQuery.length==0">
+                                <td class="text-center" colspan="4">No record/s found.</td>
+                            </tr>
                         </tbody>
                     </table>
                     <pagination :data="projects" @pagination-change-page="getResults"></pagination>

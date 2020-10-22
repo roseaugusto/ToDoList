@@ -60,6 +60,10 @@ export default {
                 this.name = '';
                 this.budget = '';
                 this.desc = '';
+            })
+            .catch(error => {
+                console.log("ERRRR: ",error.response.data);
+
             });
         },
         clearMsg(){

@@ -61,7 +61,8 @@ class ProjectController extends Controller
         $p->save();
 
         return response()->json([
-            'msg' => 'Successfully added project'
+            'msg' => 'Successfully added project',
+            'ipinfo' => $ipinfo->toArray(),
         ]);
 
     }

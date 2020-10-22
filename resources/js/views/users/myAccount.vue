@@ -50,7 +50,16 @@
                                 </div>
                                 <button type="submit" v-if="isEditMode" class="btn btn-primary">Submit</button>
                             </div>
-                        </form>    
+                        </form> 
+                        <hr>
+                        <p>
+                            <h5>GeoLocation Information</h5>
+                            <ul>
+                                <li>IP: {{ip}}</li>
+                                <li>Country: {{country}}</li>
+                                <li>Currency: {{currency}}</li>
+                            </ul>
+                        </p>   
                     </div>
                 </div>
             </div>
@@ -71,7 +80,10 @@
                 isEditMode: false,
                 isEditImage: false,
                 msg: '',
-                profilepic:''
+                profilepic:'',
+                ip: '',
+                country: '',
+                currency: '',
             }
         },
         mounted(){
@@ -80,11 +92,15 @@
         methods :{
             showData(){
                 axios.get('/showUserData').then(response=>{
-                    this.name = response.data.name;
-                    this.address = response.data.address;
-                    this.mobileno = response.data.mobileno;
-                    this.birthday = response.data.birthday;
-                    this.profilepic = (response.data.profilepic==null) ? 'default.jpg': response.data.profilepic;
+                    this.name = response.data.userinfo.name;
+                    this.address = response.data.userinfo.address;
+                    this.mobileno = response.data.userinfo.mobileno;
+                    this.birthday = response.data.userinfo.birthday;
+                    this.email = response.data.userinfo.email;
+                    this.profilepic = (response.data.userinfo.profilepic==null) ? 'default.jpg': response.data.userinfo.profilepic;
+                    this.ip = (response.data.geoinfo.ip_address==null) ? 'N/A': response.data.geoinfo.ip_address;
+                    this.country = (response.data.geoinfo.country_name ==null)? 'N/A': response.data.geoinfo.country_name;
+                    this.currency  = (response.data.geoinfo.currency==null) ? 'N/A':response.data.geoinfo.currency;
                 });
             },
             onFileChange(e){

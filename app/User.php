@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\UserGeolocation;
+
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -32,5 +34,10 @@ class User extends Authenticatable
 
     public function project(){
         return $this->hasMany('App\Project', 'user_id');
+    }
+
+    public function userGeolocation()
+    {
+        return $this->hasOne(UserGeolocation::class);
     }
 }

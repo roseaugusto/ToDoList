@@ -15,7 +15,11 @@ class UserController extends Controller
 
     public function show()
     {
-        return response()->json(Auth::user());
+        $geoinfo = User::find(Auth::user()->id)->userGeolocation;
+        return response()->json([
+            'userinfo' => Auth::user(),
+            'geoinfo' => $geoinfo,
+        ]);
     }
 
     public function updateUser(Request $request){
